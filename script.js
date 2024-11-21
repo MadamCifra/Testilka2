@@ -1,4 +1,4 @@
-// Генерация случайного задания
+п»ї// Р“РµРЅРµСЂР°С†РёСЏ СЃР»СѓС‡Р°Р№РЅРѕРіРѕ Р·Р°РґР°РЅРёСЏ
 function generateTask() {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
@@ -19,29 +19,29 @@ function generateTask() {
             correctAnswer = num1 * num2;
             break;
         case '/':
-            correctAnswer = (num1 / num2).toFixed(2); // Округляем до 2 знаков
+            correctAnswer = (num1 / num2).toFixed(2); // РћРєСЂСѓРіР»СЏРµРј РґРѕ 2 Р·РЅР°РєРѕРІ
             break;
     }
 
     return { question, correctAnswer };
 }
 
-// Работа с интерфейсом
+// Р Р°Р±РѕС‚Р° СЃ РёРЅС‚РµСЂС„РµР№СЃРѕРј
 const questionElement = document.getElementById('question');
 const answerElement = document.getElementById('answer');
 const feedbackElement = document.getElementById('feedback');
 const checkButton = document.getElementById('check-btn');
 
-// Текущее задание
+// РўРµРєСѓС‰РµРµ Р·Р°РґР°РЅРёРµ
 let currentTask = generateTask();
-questionElement.textContent = `Решите: ${currentTask.question}`;
+questionElement.textContent = `Р РµС€РёС‚Рµ: ${currentTask.question}`;
 
-// Проверка ответа
+// РџСЂРѕРІРµСЂРєР° РѕС‚РІРµС‚Р°
 checkButton.addEventListener('click', () => {
     const userAnswer = parseFloat(answerElement.value);
     if (userAnswer === parseFloat(currentTask.correctAnswer)) {
-        feedbackElement.textContent = 'Правильно! Отличная работа!';
+        feedbackElement.textContent = 'РџСЂР°РІРёР»СЊРЅРѕ! РћС‚Р»РёС‡РЅР°СЏ СЂР°Р±РѕС‚Р°!';
     } else {
-        feedbackElement.textContent = 'Неправильно. Попробуйте еще раз.';
+        feedbackElement.textContent = 'РќРµРїСЂР°РІРёР»СЊРЅРѕ. РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.';
     }
 });
